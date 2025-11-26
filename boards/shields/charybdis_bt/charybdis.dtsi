@@ -6,6 +6,11 @@
         zmk,matrix_transform = &default_transform;
     };
 
+    /* battery monitor*/
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
@@ -22,7 +27,7 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-
+        wakeup-source;
         diode-direction = "row2col";
         row-gpios
             = <&gpio0 31 GPIO_ACTIVE_HIGH>
