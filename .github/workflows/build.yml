@@ -25,12 +25,6 @@ jobs:
       - name: OS deps
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      # Uncomment if you want to generate additional keymaps
-      # - name: Generate extra keymaps
-      #   run: |
-      #     echo "⚙️ Generating additional keymaps"
-      #     mv config/keymap/charybdis.keymap config/keymap/qwerty.keymap
-
       - uses: actions/upload-artifact@v4
         with:
           name: generated-keymaps
@@ -41,7 +35,8 @@ jobs:
 
       - id: make-groups
         run: |
-          echo "groups=$(jq -c 'map(select(.format=="bt" or .format=="reset")|{keymap,format,name,board})' build.json)" >>"$GITHUB_OUTPUT"
+          # Отфильтровать группы только с форматами bt и reset
+          echo "groups=$(jq -c 'map(select(.format=="bt" or .format=="reset") | {keymap,format,name,board})' build.json)" >>"$GITHUB_OUTPUT"
           echo "⚙️ Build Matrix Created"
           cat build.json | jq .
 
@@ -67,18 +62,16 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          echo "✨ Initializing the west workspace with the local manifest from config/west.yml."
+          echo "✨ Init west workspace with local manifest."
           west init -l --mf $GITHUB_WORKSPACE/config/west.yml "$GITHUB_WORKSPACE/config"
-          echo "🔄 Updating and synchronizing all repositories in the workspace."
           west update
-          echo "📦 Exporting Zephyr for external build system integration."
           west zephyr-export
 
           echo "🪳 Debug Logs"
-          echo "👀 Top dir  : $(west topdir)"
-          echo "👀 Projects :"
+          echo "Top dir  : $(west topdir)"
+          echo "Projects :"
           ls -1 $(west topdir)
-          echo "👀 West workspace ready. Project structure:"
+          echo "Workspace list:"
           west list
 
       - name: Download keymaps
@@ -93,14 +86,12 @@ jobs:
           mkdir -p zmk/app/overlays
 
           if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
-            # keymap
-            cp config/keymap/${{ matrix.combo.keymap }}.keymap \
-              zmk/app/overlays/charybdis.keymap
+            cp config/keymap/${{ matrix.combo.keymap }}.keymap zmk/app/overlays/charybdis.keymap
 
-            # локальные .dtsi, от которых зависит keymap
+            # Копируем обязательно ключевые файлы dtsi с поведениями
             cp config/keymap/behaviors.dtsi zmk/app/overlays/ 2>/dev/null || true
-            cp config/keymap/combos.dtsi    zmk/app/overlays/ 2>/dev/null || true
-            cp config/keymap/macros.dtsi    zmk/app/overlays/ 2>/dev/null || true
+            cp config/keymap/combos.dtsi zmk/app/overlays/ 2>/dev/null || true
+            cp config/keymap/macros.dtsi zmk/app/overlays/ 2>/dev/null || true
           fi
 
       - name: Inject custom shields
@@ -109,7 +100,6 @@ jobs:
         run: |
           ZMK_SHIELDS_DIR="$GITHUB_WORKSPACE/zmk/app/boards/shields"
           mkdir -p "$ZMK_SHIELDS_DIR"
-          # Copy only the shield folder corresponding to format (bt), no extra dtsi copied here
           cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
 
       - name: Build combo ${{ matrix.combo.name }}
@@ -186,7 +176,8 @@ jobs:
 
     steps:
       - uses: actions/download-artifact@v4
-        with: { path: combo-artifacts/ }
+        with:
+          path: combo-artifacts/
 
       - name: Zip each combo
         working-directory: combo-artifacts

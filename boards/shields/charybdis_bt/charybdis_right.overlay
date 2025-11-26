@@ -1,14 +1,5 @@
 #include "charybdis.dtsi"
 
-/ {
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        status = "okay";
-        device = <&trackball>;
-    };
-};
-
-
 &default_transform {
     col-offset = <5>;
 };
@@ -26,7 +17,6 @@
     status = "okay";
 };
 
-// trackball and SPI configuration
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -64,3 +54,10 @@
     };
 };
 
+ / {
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        status = "okay";
+        device = <&trackball>;
+    };
+};
