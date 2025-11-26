@@ -1,4 +1,4 @@
-#include <dt-bindings/zmk/input_event_codes.h>
+#include <dt-bindings/input/input-event-codes.h>
 
 / {
     /* Pointer configuration for input listener */
