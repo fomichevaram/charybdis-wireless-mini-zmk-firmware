@@ -4,18 +4,36 @@
 
         CapsWord {
             bindings = <&caps_word>;
-            key-positions = <17 18>;
+            key-positions = <12 13>;
             layers = <0>;
         };
 
         combo_BASE_or_EXTRAS {
             bindings = <&td_bore>;
-            key-positions = <38 39>;
+            key-positions = <32 33>;
+        };
+        
+        // Russian letter Х (Г+Ш = G+H)
+        combo_ru_ha {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <14 15>;
+        };
+        
+        // Russian letter Ъ (Ш+Щ = H+J)
+        combo_ru_hard_sign {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <15 16>;
+        };
+        
+        // Russian letter Э (Щ+З = J+K)
+        combo_ru_e {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <16 17>;
         };
         
         combo_left_click {
             bindings = <&mkp LCLK>;
-            key-positions = <25 26>;
+            key-positions = <27 28>;
         };
         
         combo_middle_click {
@@ -25,7 +43,7 @@
 
         combo_right_click {
             bindings = <&mkp RCLK>;
-            key-positions = <27 28>;
+            key-positions = <25 26>;
         };
     };
 };
