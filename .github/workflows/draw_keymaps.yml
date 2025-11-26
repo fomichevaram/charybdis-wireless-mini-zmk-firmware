@@ -15,7 +15,7 @@ jobs:
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer/base"
       parse_args: ""
-      draw_args: "-s Base --keys-only"
+      draw_args: "--ortho-layout 'LAYOUT_split_3x5_3' -s Base --keys-only"
       amend_commit: false
       destination: artifact
       commit_message: "Add BASE-layer keymaps"
@@ -34,7 +34,7 @@ jobs:
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer"
       parse_args: ""
-      draw_args: ""
+      draw_args: "--ortho-layout 'LAYOUT_split_3x5_3'"
       amend_commit: false
       destination: artifact
       commit_message: "Add full keymaps"
