@@ -14,9 +14,8 @@ jobs:
       keymap_patterns: "config/keymap/qwerty.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer/base"
-      json_path: "config"
-      parse_args: "-c 12"
-      draw_args: "qwerty:'-s Base --keys-only'"
+      parse_args: ""
+      draw_args: "-k config/qwerty.json -l five_column_transform -s Base --keys-only"
       amend_commit: false
       destination: artifact
       commit_message: "Add BASE-layer keymaps"
@@ -34,9 +33,8 @@ jobs:
       keymap_patterns: "config/keymap/qwerty.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer"
-      json_path: "config"
-      parse_args: "-c 12"
-      draw_args: ""
+      parse_args: ""
+      draw_args: "-k config/qwerty.json -l five_column_transform"
       amend_commit: false
       destination: artifact
       commit_message: "Add full keymaps"
