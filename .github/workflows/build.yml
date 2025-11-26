@@ -32,8 +32,9 @@ jobs:
 
       - id: make-groups
         run: |
-          echo "groups=$(jq -c 'map(select(.format=="bt" or .format=="reset") \
-            | {keymap,format,name,board})' build.json)" >>"$GITHUB_OUTPUT"
+          # Просто вывести все группы без фильтрации
+          echo "groups=$(jq -c '.' build.json)" >>"$GITHUB_OUTPUT"
+          echo "⚙️ Build Matrix Created"
           cat build.json | jq .
 
   build:
