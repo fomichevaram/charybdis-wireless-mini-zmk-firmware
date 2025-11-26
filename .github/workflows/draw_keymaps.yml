@@ -14,7 +14,7 @@ jobs:
       keymap_patterns: "config/keymap/qwerty.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer/base"
-      parse_args: "-k config/qwerty.json -l five_column_transform"
+      parse_args: "-k config/qwerty.json"
       draw_args: "-s Base --keys-only"
       amend_commit: false
       destination: artifact
@@ -33,7 +33,7 @@ jobs:
       keymap_patterns: "config/keymap/qwerty.keymap"
       config_path: "keymap-drawer/config.yaml"
       output_folder: "keymap-drawer"
-      parse_args: "-k config/qwerty.json -l five_column_transform"
+      parse_args: "-k config/qwerty.json"
       draw_args: ""
       amend_commit: false
       destination: artifact
