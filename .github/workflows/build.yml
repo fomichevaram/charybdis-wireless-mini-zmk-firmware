@@ -12,32 +12,36 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       groups: ${{ steps.make-groups.outputs.groups }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: false
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout repo (no submodules)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: "3.x"
 
-      - run: sudo apt-get update && sudo apt-get install -y jq
+      - name: OS deps
+        run: sudo apt-get update && sudo apt-get install -y jq
 
       - uses: actions/upload-artifact@v4
         with:
           name: generated-keymaps
           path: config/keymap/
 
-      - run: python scripts/generate_matrix.py > build.json
+      - name: Build-matrix JSON
+        run: python scripts/generate_matrix.py > build.json
 
       - id: make-groups
         run: |
-          # Просто вывести все группы без фильтрации
-          echo "groups=$(jq -c '.' build.json)" >>"$GITHUB_OUTPUT"
+          # Отфильтровать группы только с форматами bt и reset
+          echo "groups=$(jq -c 'map(select(.format=="bt" or .format=="reset") | {keymap,format,name,board})' build.json)" >>"$GITHUB_OUTPUT"
           echo "⚙️ Build Matrix Created"
           cat build.json | jq .
 
   build:
+    name: Build (${{ matrix.combo.name }})
     needs: setup
     runs-on: ubuntu-latest
     container: zmkfirmware/zmk-build-arm:stable
@@ -48,84 +52,140 @@ jobs:
         combo: ${{ fromJson(needs.setup.outputs.groups) }}
 
     steps:
-      - run: apt-get update && apt-get install -y tree
+      - name: Install tree
+        run: apt-get update && apt-get install -y tree
 
-      - uses: actions/checkout@v4
+      - name: Checkout workflow repo
+        uses: actions/checkout@v4
 
-      - run: |
+      - name: Initialise West workspace
+        shell: bash
+        run: |
           set -euxo pipefail
+          echo "✨ Init west workspace with local manifest."
           west init -l --mf $GITHUB_WORKSPACE/config/west.yml "$GITHUB_WORKSPACE/config"
           west update
           west zephyr-export
 
-      - uses: actions/download-artifact@v4
+          echo "🪳 Debug Logs"
+          echo "Top dir  : $(west topdir)"
+          echo "Projects :"
+          ls -1 $(west topdir)
+          echo "Workspace list:"
+          west list
+
+      - name: Download keymaps
+        uses: actions/download-artifact@v4
         with:
           name: generated-keymaps
           path: config/keymap
 
-      - run: |
+      - name: Stage keymaps and overlays into source tree
+        shell: bash
+        run: |
           mkdir -p zmk/app/overlays
+
           if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
             cp config/keymap/${{ matrix.combo.keymap }}.keymap zmk/app/overlays/charybdis.keymap
+
+            # Копируем обязательно ключевые файлы dtsi с поведениями
             cp config/keymap/behaviors.dtsi zmk/app/overlays/ 2>/dev/null || true
             cp config/keymap/combos.dtsi zmk/app/overlays/ 2>/dev/null || true
             cp config/keymap/macros.dtsi zmk/app/overlays/ 2>/dev/null || true
           fi
 
-      - run: |
+      - name: Inject custom shields
+        if: ${{ matrix.combo.format != 'reset' }}
+        shell: bash
+        run: |
           ZMK_SHIELDS_DIR="$GITHUB_WORKSPACE/zmk/app/boards/shields"
           mkdir -p "$ZMK_SHIELDS_DIR"
           cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
 
-      - shell: bash
+      - name: Build combo ${{ matrix.combo.name }}
+        shell: bash
         working-directory: zmk/app
         run: |
           set -euo pipefail
+
           KM="${{ matrix.combo.keymap }}"
           FM="${{ matrix.combo.format }}"
           NM="${{ matrix.combo.name }}"
           BD="${{ matrix.combo.board }}"
+
           declare -A LIST=(
             [bt]="charybdis_left charybdis_right"
             [reset]="settings_reset"
           )
+
           mkdir -p "$GITHUB_WORKSPACE/out/$NM"
           CONFIG_DIR="$GITHUB_WORKSPACE/config"
+
           for SH in ${LIST[$FM]}; do
             BUILD_DIR=$(mktemp -d)
-            SNIPPET_OPTION=""
-            [[ "$FM" == "bt" && "$SH" == *right ]] && SNIPPET_OPTION="-DSNIPPET=studio-rpc-usb-uart"
-            KEYMAP_OPTION=""
-            [[ "$FM" != "reset" ]] && KEYMAP_OPTION="-DKEYMAP_FILE=overlays/charybdis.keymap"
 
-            echo "Building $SH for $FM format with keymap $KM"
-            west build -p -d "$BUILD_DIR" -b "$BD" -- \
+            if [[ "$FM" == "bt" && "$SH" == *right ]]; then
+              SNIPPET_OPTION="-DSNIPPET=studio-rpc-usb-uart"
+            else
+              SNIPPET_OPTION=""
+            fi
+
+            if [[ "$FM" != "reset" ]]; then
+              KEYMAP_OPTION="-DKEYMAP_FILE=overlays/charybdis.keymap"
+            else
+              KEYMAP_OPTION=""
+            fi
+
+            echo "🪳 Debug Logs"
+            echo "Build Variables:"
+            echo "→ Keymap    : $KM"
+            echo "→ Format    : $FM"
+            echo "→ Name      : $NM"
+            echo "→ Board     : $BD"
+            echo "→ KeymapOpt : $KEYMAP_OPTION"
+            echo "→ Snippet   : $SNIPPET_OPTION"
+            echo "→ Build dir : $BUILD_DIR"
+
+            echo "🛠 Starting build..."
+            west build -p \
+              -d "$BUILD_DIR" \
+              -b "$BD" \
+              -- \
               "-DZMK_CONFIG=$CONFIG_DIR" \
               "-DSHIELD=$SH" \
               "$KEYMAP_OPTION" \
               "$SNIPPET_OPTION"
+
             ART=$(if [[ -f "$BUILD_DIR/zephyr/zmk.uf2" ]]; then echo zmk.uf2; else echo zmk.bin; fi)
             cp "$BUILD_DIR/zephyr/$ART" "$GITHUB_WORKSPACE/out/$NM/$SH.${ART##*.}"
           done
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload firmware bundle
+        uses: actions/upload-artifact@v4
         with:
           name: charybdis-${{ matrix.combo.name }}
           path: ${{ github.workspace }}/out/${{ matrix.combo.name }}/**
 
   release-firmware:
+    name: Release Firmware
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     permissions:
       contents: write
+
     steps:
       - uses: actions/download-artifact@v4
         with:
           path: combo-artifacts/
-      - run: |
-          for d in */; do zip -j "${d%/}.zip" "$d"*; done
+
+      - name: Zip each combo
         working-directory: combo-artifacts
+        run: |
+          for d in */; do
+            zip -j "${d%/}.zip" "$d"*
+          done
+
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
