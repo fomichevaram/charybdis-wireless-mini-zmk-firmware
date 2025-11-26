@@ -72,30 +72,21 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                // ¯ (Macros)
                 = <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
                 , <&macro_release &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp N0 &kp N0 &kp A &kp F &kp SPC>
-                // \
                 , <&macro_tap &kp BACKSLASH>
                 , <&macro_tap &kp BACKSLASH>
-                // _
                 , <&macro_tap &kp UNDER>
-                // (
                 , <&macro_tap &kp LPAR>
-                // ツ (Katakana Letter Tu)
                 , <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
                 , <&macro_release &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp N3 &kp N0 &kp C &kp N4 &kp SPC>
-                // )
                 , <&macro_tap &kp RPAR>
-                // _
                 , <&macro_tap &kp UNDER>
-                // /
                 , <&macro_tap &kp FSLH>
-                // ¯ (Macron)
                 , <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
                 , <&macro_release &kp LCTRL &kp LSHFT>
@@ -135,13 +126,13 @@
             wait-ms = <10>;
             tap-ms = <20>;
             bindings
-                = <&macro_tap &kp S &kp U &kp D &kp O>  // "sudo"
-                , <&macro_tap &kp SPACE>                // space
-                , <&macro_tap &kp EXCL &kp EXCL>        // "!!"
-                , <&macro_tap &kp RET>                  // Enter key
+                = <&macro_tap &kp S &kp U &kp D &kp O>
+                , <&macro_tap &kp SPACE>
+                , <&macro_tap &kp EXCL &kp EXCL>
+                , <&macro_tap &kp RET>
                 ;
         };
-        
+
         clip_hist: clip_hist { // CLIPBOARD_HISTORY
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -151,7 +142,7 @@
                 , <&macro_release &kp LGUI>
                 ;
         };
-        
+
         new_dir: new_dir {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -221,7 +212,7 @@
                 , <&macro_tap &kp GRAVE>
                 ;
         };
-        
+
         home_dir: home_dir {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;

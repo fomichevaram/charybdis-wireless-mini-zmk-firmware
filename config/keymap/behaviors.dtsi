@@ -4,16 +4,6 @@
 
 / {
     behaviors {
-        // ht_num_func: homerow_mod {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <260>; // triggers the hold behavior when the tapping-term-ms has expired
-        //     quick-tap-ms = <220>; // If you press a tapped hold-tap again within quick-tap-ms milliseconds of the first press, it will always trigger the tap behavior.
-        //     require-prior-idle-ms = <185>; // like quick-tap-ms however it will apply for any non-modifier key pressed before it
-        //     bindings = <&kp>, <&kp>;  // hold, tap
-        // };
-
         mm_f1: num_or_f1 {
             compatible    = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -98,7 +88,7 @@
             mods          = <MOD_LSFT>;
         };
 
-        // Left-hand HRM
+        // Left-hand homerow mods
         ht_left: left_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -111,7 +101,7 @@
             hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
 
-        // Right-hand HRM
+        // Right-hand homerow mods
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
