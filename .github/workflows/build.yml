@@ -92,9 +92,15 @@ jobs:
         run: |
           mkdir -p zmk/app/overlays
 
-          # Copy only keymap file, exclude copying *.dtsi files to overlays to avoid duplication issues
           if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
-            cp config/keymap/${{ matrix.combo.keymap }}.keymap zmk/app/overlays/charybdis.keymap
+            # keymap
+            cp config/keymap/${{ matrix.combo.keymap }}.keymap \
+              zmk/app/overlays/charybdis.keymap
+
+            # локальные .dtsi, от которых зависит keymap
+            cp config/keymap/behaviors.dtsi zmk/app/overlays/ 2>/dev/null || true
+            cp config/keymap/combos.dtsi    zmk/app/overlays/ 2>/dev/null || true
+            cp config/keymap/macros.dtsi    zmk/app/overlays/ 2>/dev/null || true
           fi
 
       - name: Inject custom shields
