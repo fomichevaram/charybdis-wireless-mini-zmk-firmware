@@ -101,11 +101,9 @@ jobs:
           mkdir -p "$ZMK_SHIELDS_DIR"
           cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
 
-          # Копируем helper dtsi файлы в shield директорию
+          # Копируем только charybdis-layouts.dtsi из config в shield директорию
           for d in "$ZMK_SHIELDS_DIR"/*; do
-            for f in charybdis-layouts.dtsi charybdis_pmw3610.dtsi charybdis_pointer.dtsi; do
-              [ -f "config/$f" ] && cp "config/$f" "$d/" || true
-            done
+            [ -f "config/charybdis-layouts.dtsi" ] && cp "config/charybdis-layouts.dtsi" "$d/" || true
           done
 
       - name: Build combo ${{ matrix.combo.name }}

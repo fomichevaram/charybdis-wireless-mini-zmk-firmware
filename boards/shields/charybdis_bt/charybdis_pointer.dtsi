@@ -1,3 +1,23 @@
+#include <dt-bindings/zmk/input_event_codes.h>
+
 / {
     /* Pointer configuration for input listener */
+    input_listener_cb0: input_listener_cb0 {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        
+        device = <&trackball>;
+        
+        input-processors = <&zip_xy_transform 0 0>;
+        
+        xy-swap;
+        y-invert;
+    };
+    
+    zip_xy_transform: zip_xy_transform {
+        compatible = "zmk,input-processor-transform";
+        type = <INPUT_EV_REL>;
+        x-codes = <INPUT_REL_X>;
+        y-codes = <INPUT_REL_Y>;
+    };
 };
