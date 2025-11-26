@@ -5,10 +5,6 @@
     input_listener_cb0: input_listener_cb0 {
         compatible = "zmk,input-listener";
         status = "disabled";
-        
         device = <&trackball>;
-        
-        xy-swap;
-        y-invert;
     };
 };
