@@ -88,10 +88,9 @@ jobs:
           if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
             cp config/keymap/${{ matrix.combo.keymap }}.keymap zmk/app/overlays/charybdis.keymap
 
-            # Копируем обязательно ключевые файлы dtsi с поведениями
-            cp config/keymap/behaviors.dtsi zmk/app/overlays/ 2>/dev/null || true
-            cp config/keymap/combos.dtsi zmk/app/overlays/ 2>/dev/null || true
-            cp config/keymap/macros.dtsi zmk/app/overlays/ 2>/dev/null || true
+            # Копируем все .dtsi файлы из config и config/keymap
+            cp config/*.dtsi zmk/app/overlays/ 2>/dev/null || true
+            cp config/keymap/*.dtsi zmk/app/overlays/ 2>/dev/null || true
           fi
 
       - name: Inject custom shields
@@ -101,6 +100,13 @@ jobs:
           ZMK_SHIELDS_DIR="$GITHUB_WORKSPACE/zmk/app/boards/shields"
           mkdir -p "$ZMK_SHIELDS_DIR"
           cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
+
+          # Копируем helper dtsi файлы в shield директорию
+          for d in "$ZMK_SHIELDS_DIR"/*; do
+            for f in charybdis-layouts.dtsi charybdis_pmw3610.dtsi charybdis_pointer.dtsi; do
+              [ -f "config/$f" ] && cp "config/$f" "$d/" || true
+            done
+          done
 
       - name: Build combo ${{ matrix.combo.name }}
         shell: bash
