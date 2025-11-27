@@ -39,7 +39,7 @@
         
         // Map X movement to vertical scroll (inverted)
         x-to-y-input-code = <INPUT_REL_WHEEL>;
-        x-to-y-scale-multiplier = <-1>;
+        x-to-y-scale-multiplier = <(-1)>;
         x-to-y-scale-divisor = <8>;
         
         // Map Y movement to horizontal scroll
