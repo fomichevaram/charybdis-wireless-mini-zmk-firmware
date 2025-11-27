@@ -5,6 +5,7 @@
         compatible = "zmk,physical-layout";
         display-name = "Charybdis 3x5";
         kscan = <&kscan0>;
+        transform = <&default_transform>;
 
         keys
             // Left Half - Main Keys (3x5)
