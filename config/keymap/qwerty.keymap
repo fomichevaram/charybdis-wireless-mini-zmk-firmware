@@ -103,6 +103,6 @@
     &kp Z            &kp X            &kp C             &kp V             &kp B     &kp N  &kp M              &mm_cm_sc          &mm_pr_col        &mm_qm_ex
                                                              &td_esc_scrl_slow   &td_clk  &td_bs     &kp ENTER  &td_space_nav
             >;
-        }
+        };
     };
 };
