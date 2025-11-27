@@ -31,16 +31,6 @@
 };
 
 / {
-    /* Scaler for smooth scroll - slow down by 8x */
-    scroll_scaler: scroll_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <0>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
-        scale-multiplier = <1>;
-        scale-divisor = <8>;
-    };
-    
     /* Transform to invert vertical scroll */
     scroll_invert: scroll_invert {
         compatible = "zmk,input-processor-transform";
@@ -66,10 +56,10 @@
         inherit;
     };
     
-    // Scroll mode on layer 8 - smooth inverted scroll
+    // Scroll mode on layer 8 - smooth inverted scroll (1/8 speed, inverted Y)
     scroll_mode {
         layers = <8>;
-        input-processors = <&zip_xy_to_scroll_mapper>, <&scroll_scaler>, <&scroll_invert>;
+        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 8>, <&scroll_invert>;
         inherit;
     };
 };
