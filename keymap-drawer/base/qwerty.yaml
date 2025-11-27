@@ -13,12 +13,12 @@ layers:
   - P
   - {t: A, h: LCMD}
   - {t: S, h: LALT}
-  - {t: D, h: LSHFT}
-  - {t: F, h: LCTRL}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
   - G
   - H
-  - {t: J, h: RCTRL}
-  - {t: K, h: RSHFT}
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
   - {t: L, h: LALT}
   - {t: ;, h: RCMD}
   - Z
@@ -181,7 +181,7 @@ layers:
   - ''
   - ''
   - ''
-  Slow:
+  Mouse:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -192,16 +192,16 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&msc SCRL_UP'
+  - R CLK
+  - Mid CLK
+  - L CLK
+  - Mouse
+  - Mouse
+  - L CLK
+  - Mid CLK
+  - R CLK
+  - '&msc SCRL_DOWN'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -253,18 +253,59 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  RUS:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: LCMD}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
+  - G
+  - H
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: LALT}
+  - {t: ;, h: RCMD}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - {t: '?', s: '!'}
+  - ESC SCRL SLOW
+  - SYM LCLK
+  - BS NUM
+  - ENTER
+  - SPACE NAV
 combos:
 - p: [12, 13]
   k: CAPS WORD
   l: [Base]
 - p: [32, 33]
   k: L_BASE L_EXTRA
+- p: [31, 33]
+  k: {t: RUS, h: toggle}
 - p: [14, 15]
   k: '['
+  l: [RUS]
 - p: [15, 16]
   k: ']'
+  l: [RUS]
 - p: [16, 17]
   k: ''''
+  l: [RUS]
 - p: [27, 28]
   k: L CLK
 - p: [26, 27]
