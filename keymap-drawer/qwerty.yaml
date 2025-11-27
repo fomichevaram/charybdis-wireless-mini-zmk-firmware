@@ -31,11 +31,11 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '?', s: '!'}
-  - ESC SCRL SLOW
-  - SYM LCLK
-  - BS NUM
-  - ENTER
-  - SPACE NAV
+  - BACK SPACE
+  - {t: TAB, h: Num}
+  - {t: ESC, h: Nav}
+  - {t: ENTER, h: Sym}
+  - SPACE
   Num:
   - ''
   - ''
@@ -67,10 +67,10 @@ layers:
   - {t: '2', s: F2}
   - {t: '3', s: F3}
   - {t: ., s: F12}
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - '0'
+  - BACK SPACE
+  - {type: held}
+  - ESC
+  - Nav
   - SPACE
   Nav:
   - WHEEL L
@@ -105,7 +105,7 @@ layers:
   - END
   - ''
   - ''
-  - ''
+  - {type: held}
   - ''
   - {t: ▽, type: trans}
   Sym:
@@ -139,11 +139,11 @@ layers:
   - '{'
   - '}'
   - '@'
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - BACK SPACE
+  - Xtra
+  - ESC
+  - {type: held}
+  - SPACE
   Game: [TAB, Q, W, E, R, '', '', '', '', '', LCTRL, A, S, D, F, '', '', '', '', '', LSHFT, Y, X, C, V, '', '', '', '', '', '', SPACE, LEFT ALT, '', '']
   Xtra:
   - SHRUG
@@ -177,9 +177,9 @@ layers:
   - VOLUME UP
   - PRINT SCREEN
   - ''
+  - {type: held}
   - ''
-  - ''
-  - ''
+  - {type: held}
   - ''
   Mouse:
   - {t: ▽, type: trans}
