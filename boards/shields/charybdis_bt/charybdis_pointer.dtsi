@@ -1,10 +1,1 @@
-#include <dt-bindings/input/input-event-codes.h>
-
-/ {
-    /* Pointer configuration for input listener */
-    input_listener_cb0: input_listener_cb0 {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-        device = <&trackball>;
-    };
-};
+// Pointer listener configuration moved to charybdis_pmw3610.dtsi
