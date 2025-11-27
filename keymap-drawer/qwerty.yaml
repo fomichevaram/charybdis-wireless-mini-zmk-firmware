@@ -196,8 +196,8 @@ layers:
   - R CLK
   - Mid CLK
   - L CLK
-  - Mouse
-  - Mouse
+  - {t: Scroll, h: toggle}
+  - {t: Scroll, h: toggle}
   - L CLK
   - Mid CLK
   - R CLK
