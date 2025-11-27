@@ -28,9 +28,9 @@ layers:
   - B
   - N
   - M
-  - {t: ',', s: ;}
-  - {t: ., s: ':'}
-  - {t: '?', s: '!'}
+  - ','
+  - .
+  - /
   - BACK SPACE
   - {t: TAB, h: Num}
   - {t: ESC, h: Nav}
