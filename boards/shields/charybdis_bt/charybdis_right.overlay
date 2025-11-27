@@ -2,6 +2,7 @@
 #include "charybdis_pmw3610.dtsi"
 #include "charybdis_pointer.dtsi"
 #include <dt-bindings/input/input-event-codes.h>
+#include <input/processors.dtsi>
 
 &default_transform {
     col-offset = <5>;
@@ -33,9 +34,10 @@
 &trackball_listener {
     status = "okay";
     device = <&trackball>;
-};
-
-/ {
-    // Input listener for trackball events - no input processors for now
-    // TODO: Add automouse configuration when urob fork documentation is clearer
+    
+    // Automouse - activate MOUSE layer (6) on trackball movement
+    automouse {
+        layers = <6>;
+        input-processors = <&zip_temp_layer 6 300>;
+    };
 };
