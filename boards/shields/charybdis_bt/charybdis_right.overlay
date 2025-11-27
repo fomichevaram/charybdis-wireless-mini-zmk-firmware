@@ -48,7 +48,7 @@
     // Scroll mode on layer 8 - convert trackball movement to scroll wheel events
     scroll_mode {
         layers = <8>;
-        input-processors = <&zip_xy_to_scroll>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
         inherit;
     };
 };
