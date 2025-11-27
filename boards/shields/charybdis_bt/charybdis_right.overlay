@@ -36,16 +36,10 @@
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
         type = <INPUT_EV_REL>;
-        
-        // Map X movement to vertical scroll (inverted)
-        x-to-y-input-code = <INPUT_REL_WHEEL>;
-        x-to-y-scale-multiplier = <(-1)>;
-        x-to-y-scale-divisor = <8>;
-        
-        // Map Y movement to horizontal scroll
-        y-to-x-input-code = <INPUT_REL_HWHEEL>;
-        y-to-x-scale-multiplier = <1>;
-        y-to-x-scale-divisor = <8>;
+        map = <
+            INPUT_REL_X INPUT_REL_WHEEL   (-1) 8  // X -> vertical scroll (inverted, 1/8 speed)
+            INPUT_REL_Y INPUT_REL_HWHEEL  1   8   // Y -> horizontal scroll (1/8 speed)
+        >;
     };
 };
 
