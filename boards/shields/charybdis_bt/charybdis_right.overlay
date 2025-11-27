@@ -30,6 +30,25 @@
     status = "okay";
 };
 
+/ {
+    /* Custom smooth inverted scroll processor */
+    smooth_scroll: smooth_scroll {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        
+        // Map X movement to vertical scroll (inverted)
+        x-to-y-input-code = <INPUT_REL_WHEEL>;
+        x-to-y-scale-multiplier = <-1>;
+        x-to-y-scale-divisor = <8>;
+        
+        // Map Y movement to horizontal scroll
+        y-to-x-input-code = <INPUT_REL_HWHEEL>;
+        y-to-x-scale-multiplier = <1>;
+        y-to-x-scale-divisor = <8>;
+    };
+};
+
 /* enable the listener on central */
 &trackball_listener {
     status = "okay";
@@ -45,10 +64,10 @@
         inherit;
     };
     
-    // Scroll mode on layer 8 - convert trackball movement to scroll wheel events
+    // Scroll mode on layer 8 - smooth inverted scroll
     scroll_mode {
         layers = <8>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        input-processors = <&smooth_scroll>;
         inherit;
     };
 };
