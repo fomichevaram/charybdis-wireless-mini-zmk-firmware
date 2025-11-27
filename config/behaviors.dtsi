@@ -186,7 +186,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mkp RCLK>, <&mo 8>;  // tap/hold, double_tap
+            bindings = <&mkp RCLK>, <&none>;  // tap/hold, double_tap (scroll mode removed)
         };
 
         td_bore: BASE_or_EXTRA {

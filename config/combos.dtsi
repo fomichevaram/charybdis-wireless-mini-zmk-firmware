@@ -13,47 +13,19 @@
             key-positions = <32 33>;
         };
         
-        // Toggle Russian layer (оба больших пальца thumb)
-        combo_toggle_rus {
-            bindings = <&tog 8>;
-            key-positions = <31 33>;
-            timeout-ms = <50>;
-        };
-        
-        // Russian letter Х (Г+Ш = G+H)
-        combo_ru_ha {
+        combo_left_bracket {
             bindings = <&kp LEFT_BRACKET>;
-            key-positions = <14 15>;
-            layers = <8>;
+            key-positions = <7 8>;
         };
         
-        // Russian letter Ъ (Ш+Щ = H+J)
-        combo_ru_hard_sign {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <15 16>;
-            layers = <8>;
+        combo_slash {
+            bindings = <&kp SLASH>;
+            key-positions = <8 9>;
         };
         
-        // Russian letter Э (Щ+З = J+K)
-        combo_ru_e {
+        combo_single_quote {
             bindings = <&kp SINGLE_QUOTE>;
-            key-positions = <16 17>;
-            layers = <8>;
-        };
-        
-        combo_left_click {
-            bindings = <&mkp LCLK>;
-            key-positions = <27 28>;
-        };
-        
-        combo_middle_click {
-            bindings = <&mkp MCLK>;
-            key-positions = <26 27>;
-        };
-
-        combo_right_click {
-            bindings = <&mkp RCLK>;
-            key-positions = <25 26>;
+            key-positions = <9 10>;
         };
     };
 };
