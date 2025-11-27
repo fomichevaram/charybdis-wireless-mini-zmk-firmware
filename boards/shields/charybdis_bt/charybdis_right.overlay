@@ -39,11 +39,6 @@
     input_listener_cb0: input_listener_cb0 {
         compatible = "zmk,input-listener";
         device = <&trackball_listener>;
-        
-        xy-swap;
-        y-invert;
-        
-        layer-toggle = <6>;  // MOUSE layer
-        timeout-ms = <600>;
+        layers = <6>;  // MOUSE layer
     };
 };
