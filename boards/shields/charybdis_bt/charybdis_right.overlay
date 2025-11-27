@@ -31,6 +31,18 @@
     status = "okay";
 };
 
+/ {
+    input_processors {
+        zip_wheel_scaler: zip_wheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+};
+
 /* enable the listener on central */
 &trackball_listener {
     status = "okay";
@@ -46,10 +58,10 @@
         inherit;
     };
     
-    // Scroll mode on layer 8 - inverted scroll
+    // Scroll mode on layer 8 - inverted smooth scroll (1/8 speed)
     scroll_mode {
         layers = <8>;
-        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_wheel_scaler 1 8>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
         inherit;
     };
 };
