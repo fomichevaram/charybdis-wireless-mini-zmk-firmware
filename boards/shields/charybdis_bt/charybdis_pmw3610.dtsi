@@ -45,6 +45,7 @@
         x-input-code = <INPUT_REL_Y>;
         y-input-code = <INPUT_REL_X>;
         invert-x;
+        invert-y;
         force-awake;
     };
 };
