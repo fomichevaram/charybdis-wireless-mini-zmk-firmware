@@ -35,9 +35,6 @@
     status = "okay";
     device = <&trackball>;
     
-    // Automouse - activate MOUSE layer (6) on trackball movement
-    automouse {
-        layers = <6>;
-        input-processors = <&zip_temp_layer 6 300>;
-    };
+    // Automouse - activate MOUSE layer (6) on trackball movement for 2 seconds
+    input-processors = <&zip_temp_layer 6 300>;
 };
