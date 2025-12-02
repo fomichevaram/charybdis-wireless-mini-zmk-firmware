@@ -238,5 +238,12 @@
             quick-tap-ms = <160>;
             bindings = <&mo>, <&kp>;
         };
+
+        td_slash_lang: slash_or_language_switch {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SLASH>, <&kp LG(SPACE)>;
+        };
     };
 };
