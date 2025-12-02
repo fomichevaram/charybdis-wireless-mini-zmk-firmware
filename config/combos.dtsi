@@ -18,13 +18,13 @@
             key-positions = <7 8>;
         };
         
-        combo_slash {
-            bindings = <&kp SLASH>;
+        combo_right_bracket {
+            bindings = <&kp RIGHT_BRACKET>;
             key-positions = <8 9>;
         };
         
-        combo_single_quote {
-            bindings = <&kp SINGLE_QUOTE>;
+        combo_backslash {
+            bindings = <&kp BACKSLASH>;
             key-positions = <9 10>;
         };
     };

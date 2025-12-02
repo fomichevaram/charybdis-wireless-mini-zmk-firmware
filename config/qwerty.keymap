@@ -18,9 +18,9 @@
         BASE {
             display-name = "Base";
             bindings = <
-    &kp Q            &kp W            &kp E             &kp R             &kp T     &kp Y  &kp U              &kp I              &kp O             &kp P
-    &ht_left LCMD A  &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G     &kp H  &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &ht_right RCMD SEMICOLON
-    &kp Z            &kp X            &kp C             &kp V             &kp B     &kp N  &kp M              &kp COMMA          &kp PERIOD        &kp SLASH
+    &kp Q        &kp W            &kp E             &kp R             &kp T     &kp Y  &kp U              &kp I              &kp O             &kp P
+    &td_a_gui    &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G     &kp H  &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &td_semi_gui
+    &kp Z        &kp X            &kp C             &kp V             &kp B     &kp N  &kp M              &kp COMMA          &kp PERIOD        &kp SLASH
                                                              &kp BACKSPACE   &lt 1 TAB  &lt 2 ESC     &lt 3 ENTER  &kp SPACE
             >;
         };

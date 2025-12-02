@@ -48,8 +48,8 @@
     status = "okay";
     device = <&trackball>;
     
-    // Automouse - activate MOUSE layer (6) on trackball movement for 2 seconds
-    input-processors = <&zip_temp_layer 6 2000>;
+    // Automouse - activate MOUSE layer (6) on trackball movement for 500ms
+    input-processors = <&zip_temp_layer 6 500>;
     
     // Sniper mode on SCROLL layer (7) - slow down by 3x (equivalent to ~400 CPI from 1200)
     sniper_mode {

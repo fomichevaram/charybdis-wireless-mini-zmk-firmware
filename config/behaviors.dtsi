@@ -215,5 +215,19 @@
             bindings      = <&kp COMMA>, <&kp SEMICOLON>;
             mods          = <(MOD_LSFT | MOD_RSFT)>;
         };
+
+        td_a_gui: tap_a_doubletap_gui {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht_left LCMD A>, <&kp LCMD>;
+        };
+
+        td_semi_gui: tap_semi_doubletap_gui {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht_right RCMD SEMICOLON>, <&kp RCMD>;
+        };
     };
 };
