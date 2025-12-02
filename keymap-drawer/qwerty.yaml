@@ -30,39 +30,39 @@ layers:
   - M
   - ','
   - .
-  - /
+  - {t: /, h: Mouse}
   - BACK SPACE
   - {t: TAB, h: Num}
   - {t: ESC, h: Nav}
   - {t: ENTER, h: Sym}
   - SPACE
   Num:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
   - +
+  - '-'
+  - '='
+  - '*'
+  - '%'
+  - ''
   - {t: '7', s: F7}
   - {t: '8', s: F8}
   - {t: '9', s: F9}
   - {t: '%', s: F10}
+  - LCMD
+  - LALT
+  - LCTRL
+  - LSHFT
   - ''
   - ''
-  - ''
-  - BACK SPACE
-  - LSHIFT
-  - '-'
   - {t: '4', s: F4}
   - {t: '5', s: F5}
   - {t: '6', s: F6}
   - {t: '0', s: F11}
-  - ''
+  - .
   - X
+  - C
+  - V
+  - DEL
   - ''
-  - ''
-  - ''
-  - '='
   - {t: '1', s: F1}
   - {t: '2', s: F2}
   - {t: '3', s: F3}
@@ -78,36 +78,36 @@ layers:
   - UP
   - END
   - Ctl+ END
-  - TMUX DETCH
-  - TMUX ATTCH
-  - TMUX NEXT
-  - TMUX SESH
-  - TMUX SYNC
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - BACK
   - LEFT
   - DOWN
   - RIGHT
   - FWD
-  - HSPLIT
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
-  - MOVE L
-  - Ctl+ LEFT
-  - MOVE UP
-  - Ctl+ RIGHT
-  - MOVE R
-  - VSPLIT
-  - HOME
-  - PG DN
+  - ''
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LCMD
   - PG UP
-  - END
+  - Ctl+ LEFT
+  - ''
+  - Ctl+ RIGHT
+  - PG DN
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - ''
   - {type: held}
   - ''
-  - {t: ▽, type: trans}
+  - SPACE
   Sym:
   - '~'
   - $
@@ -168,9 +168,9 @@ layers:
   - NEXT
   - UNDO
   - CUT
-  - COPY
+  - CAPS WORD
   - PASTE
-  - ''
+  - DEL
   - NEW DIR
   - MUTE
   - VOLUME DOWN
@@ -211,7 +211,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -283,18 +283,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [12, 13]
-  k: CAPS WORD
-  l: [Base]
-- p: [32, 33]
-  k: L_BASE L_EXTRA
 - p: [6, 7]
   k: '['
 - p: [7, 8]
