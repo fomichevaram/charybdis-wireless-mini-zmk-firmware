@@ -143,7 +143,29 @@ Open the config/keymap/charybdis.keymap file and change keys, or add/remove laye
 
 ### Modifying Trackball Behavior
 
-The trackball uses ZMK's modular input processor system, making it easy to adjust pointer behavior to your liking. All trackball-related configurations and input processors are conveniently grouped in the `config/charybdis_pointer.dtsi` file. Modify this file to customize tracking speed, acceleration, scrolling behavior, and more—then rebuild your firmware.
+The trackball uses ZMK's modular input processor system, making it easy to adjust pointer behavior to your liking. All trackball-related configurations and input processors are conveniently grouped in the `boards/shields/charybdis_bt/charybdis_right.overlay` file.
+
+**Key trackball settings:**
+
+- **Automouse:** Currently disabled by default. To enable automouse (automatically activate MOUSE layer on trackball movement), uncomment the line in `charybdis_right.overlay`:
+
+  ```
+  // input-processors = <&zip_temp_layer 6 500>;
+  ```
+
+  Change to:
+
+  ```
+  input-processors = <&zip_temp_layer 6 500>;
+  ```
+
+  The `500` value is the timeout in milliseconds (how long the layer stays active after you stop moving the trackball).
+
+- **Sniper mode (layer 7):** Configured to slow down cursor movement to 1/3 speed for precision work. Toggle by pressing `G` or `H` in MOUSE layer.
+
+- **Scroll mode (layer 8):** Configured for smooth inverted vertical scrolling at 1/8 speed. Activate by holding `A` or `;` in MOUSE layer.
+
+Modify this file to customize tracking speed, acceleration, scrolling behavior, and more—then rebuild your firmware.
 
 ### Building Your Customized Firmware
 
