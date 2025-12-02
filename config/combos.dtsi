@@ -15,17 +15,17 @@
         
         combo_left_bracket {
             bindings = <&kp LEFT_BRACKET>;
-            key-positions = <7 8>;
+            key-positions = <6 7>;
         };
         
         combo_right_bracket {
             bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <8 9>;
+            key-positions = <7 8>;
         };
         
         combo_backslash {
             bindings = <&kp BACKSLASH>;
-            key-positions = <9 10>;
+            key-positions = <8 9>;
         };
     };
 };
