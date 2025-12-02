@@ -75,7 +75,7 @@ layers:
   Nav:
   - Ctl+ HOME
   - HOME
-  - WHEEL D
+  - UP
   - END
   - Ctl+ END
   - TMUX DETCH
