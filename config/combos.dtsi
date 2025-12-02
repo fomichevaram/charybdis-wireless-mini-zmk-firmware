@@ -24,7 +24,7 @@
         };
         
         combo_backslash {
-            bindings = <&kp BACKSLASH>;
+            bindings = <&kp APOSTROPHE>;
             key-positions = <8 9>;
         };
     };
