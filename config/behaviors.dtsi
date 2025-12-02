@@ -77,14 +77,14 @@
         mm_f11: asterisk_or_f11 {
             compatible    = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings      = <&kp ASTRK>, <&kp F11>;
+            bindings      = <&kp N0>, <&kp F11>;
             mods          = <MOD_LSFT>;
         };
 
         mm_f12: dot_or_f12 {
             compatible    = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings      = <&kp DOT>, <&kp F12>;
+            bindings      = <&kp ASTRK>, <&kp F12>;
             mods          = <MOD_LSFT>;
         };
 
