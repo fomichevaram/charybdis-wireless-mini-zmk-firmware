@@ -38,7 +38,7 @@
         NAV {
             display-name = "Nav";
             bindings = <
-    &kp LC(HOME)    &kp HOME        &msc MOVE_UP    &kp END         &kp LC(END)         &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes
+    &kp LC(HOME)    &kp HOME        &kp UP    &kp END         &kp LC(END)         &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes
     &mkp MB4        &kp LEFT_ARROW  &kp DOWN        &kp RIGHT_ARROW &mkp MB5            &h_split         &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW
     &mmv MOVE_LEFT  &kp LC(LEFT)    &mmv MOVE_UP    &kp LC(RIGHT)   &mmv MOVE_RIGHT     &v_split         &kp HOME           &kp PG_DN    &kp PG_UP       &kp END
                                                           &none   &none   &none               &none   &trans
