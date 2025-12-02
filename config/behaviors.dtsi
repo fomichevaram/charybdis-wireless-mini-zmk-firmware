@@ -229,5 +229,14 @@
             tapping-term-ms = <200>;
             bindings = <&ht_right RCMD SEMICOLON>, <&kp RCMD>;
         };
+
+        lt_slash_mouse: slash_or_mouse_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <160>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 };

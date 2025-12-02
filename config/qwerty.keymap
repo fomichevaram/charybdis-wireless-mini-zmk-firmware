@@ -18,90 +18,90 @@
         BASE {
             display-name = "Base";
             bindings = <
-    &kp Q        &kp W            &kp E             &kp R             &kp T     &kp Y  &kp U              &kp I              &kp O             &kp P
-    &td_a_gui    &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G     &kp H  &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &td_semi_gui
-    &kp Z        &kp X            &kp C             &kp V             &kp B     &kp N  &kp M              &kp COMMA          &kp PERIOD        &kp SLASH
-                                                             &kp BACKSPACE   &lt 1 TAB  &lt 2 ESC     &lt 3 ENTER  &kp SPACE
+    &kp Q        &kp W            &kp E             &kp R             &kp T          &kp Y  &kp U              &kp I              &kp O             &kp P
+    &td_a_gui    &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G          &kp H  &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &td_semi_gui
+    &kp Z        &kp X            &kp C             &kp V             &kp B          &kp N  &kp M              &kp COMMA          &kp PERIOD        &lt_slash_mouse 6 SLASH
+                                                    &kp BACKSPACE     &lt 1 TAB      &lt 2 ESC     &lt 3 ENTER  &kp SPACE
             >;
         };
 
         NUM {
             display-name = "Num";
             bindings = <
-    &none  &none   &none  &none          &none            &kp PLUS     &mm_f7             &mm_f8             &mm_f9             &mm_f10
-    &none  &none  &none  &kp BACKSPACE  &kp LSHIFT       &kp KP_MINUS &mm_f4             &mm_f5             &mm_f6             &mm_f11
-    &none  &kp X  &none  &none          &none            &kp EQUAL    &mm_f1             &mm_f2             &mm_f3             &mm_f12
-                           &kp BACKSPACE  &trans          &kp ESC           &mo 5     &kp SPACE
+    &kp PLUS     &kp KP_MINUS  &kp EQUAL      &kp ASTRK      &kp PERCENT        &none      &mm_f7    &mm_f8    &mm_f9    &mm_f10
+    &kp LCMD     &kp LALT      &kp LCTRL      &kp LSHFT      &none              &none      &mm_f4    &mm_f5    &mm_f6    &mm_f11
+    &kp DOT      &kp X         &kp C          &kp V          &kp DEL            &none      &mm_f1    &mm_f2    &mm_f3    &mm_f12
+                                              &kp BACKSPACE  &trans             &kp ESC    &mo 5     &kp SPACE
             >;
         };
 
         NAV {
             display-name = "Nav";
             bindings = <
-    &kp LC(HOME)    &kp HOME        &kp UP    &kp END         &kp LC(END)         &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes
-    &mkp MB4        &kp LEFT_ARROW  &kp DOWN        &kp RIGHT_ARROW &mkp MB5            &h_split         &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW
-    &mmv MOVE_LEFT  &kp LC(LEFT)    &mmv MOVE_UP    &kp LC(RIGHT)   &mmv MOVE_RIGHT     &v_split         &kp HOME           &kp PG_DN    &kp PG_UP       &kp END
-                                                          &none   &none   &none               &none   &trans
+    &kp LC(HOME)    &kp HOME        &kp UP    &kp END          &kp LC(END)        &none      &none      &none      &none      &none
+    &mkp MB4        &kp LEFT_ARROW  &kp DOWN  &kp RIGHT_ARROW  &mkp MB5           &none      &kp LSHFT  &kp LCTRL  &kp LALT   &kp LCMD
+    &kp PG_UP       &kp LC(LEFT)    &none     &kp LC(RIGHT)    &kp PG_DN          &none      &none      &none      &none      &none
+                                              &none            &none              &none      &none      &kp SPACE
             >;
         };
 
         SYM {
             display-name = "Sym";
             bindings = <
-    &kp TILDE  &kp DLLR  &kp CARET  &move_line_up    &mc_add_above      &kp AMPS   &kp PLUS     &kp LBKT  &kp RBKT  &kp PRCNT
-    &kp UNDER  &kp LT    &kp GT     &kp BACKSPACE    &delete_line       &kp GRAVE  &kp KP_MINUS &kp LPAR  &kp RPAR  &kp ASTRK
-    &home_dir  &none     &kp HASH   &move_line_down  &mc_add_below      &code_blk  &kp EQUAL    &kp LBRC  &kp RBRC  &kp AT
-                                           &kp BACKSPACE  &mo 5     &kp ESC            &trans   &kp SPACE
+    &kp TILDE    &kp DLLR  &kp CARET      &move_line_up    &mc_add_above        &kp AMPS   &kp PLUS      &kp LBKT  &kp RBKT  &kp PRCNT
+    &kp UNDER    &kp LT    &kp GT         &kp BACKSPACE    &delete_line         &kp GRAVE  &kp KP_MINUS  &kp LPAR  &kp RPAR  &kp ASTRK
+    &home_dir    &none     &kp HASH       &move_line_down  &mc_add_below        &code_blk  &kp EQUAL     &kp LBRC  &kp RBRC  &kp AT
+                                          &kp BACKSPACE    &mo 5                &kp ESC    &trans        &kp SPACE
             >;
         };
 
         GAME {
             display-name = "Game";
             bindings = <
-    &kp TAB    &kp Q  &kp W   &kp E      &kp R           &none  &none  &none  &none  &none
-    &kp LCTRL  &kp A  &kp S   &kp D      &kp F           &none  &none  &none  &none  &none
-    &kp LSHFT  &kp Y  &kp X   &kp C      &kp V           &none  &none  &none  &none  &none
-                              &none   &kp SPACE  &kp LEFT_ALT    &none  &none
+    &kp TAB      &kp Q  &kp W  &kp E          &kp R              &none      &none  &none  &none  &none
+    &kp LCTRL    &kp A  &kp S  &kp D          &kp F              &none      &none  &none  &none  &none
+    &kp LSHFT    &kp Y  &kp X  &kp C          &kp V              &none      &none  &none  &none  &none
+                               &none          &kp SPACE          &kp LEFT_ALT      &none  &none
             >;
         };
 
         EXTRAS {
             display-name = "Xtra";
             bindings = <
-    &shrug          &lgtm           &gcm            &none           &kp C_BRIGHTNESS_INC    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG
-    &sudo           &none           &none           &none           &kp C_BRIGHTNESS_DEC    &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP    &kp C_NEXT
-    &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE  &none                   &new_dir      &kp C_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp PRINTSCREEN
-                                                                                       &none  &none  &none    &none         &none
+    &shrug          &lgtm         &gcm          &none           &kp C_BRIGHTNESS_INC      &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG
+    &sudo           &none         &none         &none           &kp C_BRIGHTNESS_DEC      &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT
+    &kp C_AC_UNDO   &kp C_AC_CUT  &caps_word    &kp C_AC_PASTE  &kp DEL                   &new_dir      &kp C_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp PRINTSCREEN
+                                                &none           &none                     &none         &none           &none
             >;
         };
 
         MOUSE {
             display-name = "Mouse";
             bindings = <
-    &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
-    &mo 8         &mkp RCLK     &mkp MCLK     &mkp LCLK     &tog 7        &tog 7        &mkp LCLK     &mkp MCLK     &mkp RCLK     &mo 8
-    &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
-                                                      &trans    &trans    &trans        &trans        &trans
+    &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans
+    &mo 8     &mkp RCLK  &mkp MCLK  &mkp LCLK  &tog 7        &tog 7     &mkp LCLK  &mkp MCLK  &mkp RCLK  &mo 8
+    &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans
+                                    &trans     &trans        &trans     &trans     &trans
             >;
         };
 
         SCROLL {
             display-name = "Scroll";
             bindings = <
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-                              &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+                                  &trans    &trans        &trans    &trans    &trans
             >;
         };
 
         SCROLL_MODE {
             display-name = "ScrMd";
             bindings = <
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
-                              &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+                                  &trans    &trans        &trans    &trans    &trans
             >;
         };
     };
