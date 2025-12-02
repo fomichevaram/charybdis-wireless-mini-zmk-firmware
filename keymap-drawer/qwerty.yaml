@@ -56,7 +56,7 @@ layers:
   - {t: '4', s: F4}
   - {t: '5', s: F5}
   - {t: '6', s: F6}
-  - {t: '*', s: F11}
+  - {t: '0', s: F11}
   - ''
   - X
   - ''
@@ -66,27 +66,27 @@ layers:
   - {t: '1', s: F1}
   - {t: '2', s: F2}
   - {t: '3', s: F3}
-  - {t: ., s: F12}
+  - {t: '*', s: F12}
   - BACK SPACE
   - {type: held}
   - ESC
-  - Nav
+  - Xtra
   - SPACE
   Nav:
-  - WHEEL L
+  - Ctl+ HOME
+  - HOME
   - WHEEL D
-  - ''
-  - WHEEL U
-  - WHEEL R
+  - END
+  - Ctl+ END
   - TMUX DETCH
   - TMUX ATTCH
   - TMUX NEXT
   - TMUX SESH
   - TMUX SYNC
   - BACK
-  - LALT
-  - LSHFT
-  - LCTRL
+  - LEFT
+  - DOWN
+  - RIGHT
   - FWD
   - HSPLIT
   - LEFT
@@ -94,10 +94,10 @@ layers:
   - UP
   - RIGHT
   - MOVE L
-  - MOVE D
+  - Ctl+ LEFT
   - MOVE UP
+  - Ctl+ RIGHT
   - MOVE R
-  - ''
   - VSPLIT
   - HOME
   - PG DN
