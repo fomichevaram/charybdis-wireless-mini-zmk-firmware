@@ -21,7 +21,7 @@
     &kp Q        &kp W            &kp E             &kp R             &kp T          &kp Y  &kp U              &kp I              &kp O             &kp P
     &td_a_gui    &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G          &kp H  &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &lt_slash_mouse 6 SEMICOLON
     &kp Z        &kp X            &kp C             &kp V             &kp B          &kp N  &kp M              &kp COMMA          &kp PERIOD        &td_slash_lang
-                                                    &kp BACKSPACE     &lt 1 TAB      &lt 2 ESC     &lt 3 ENTER  &kp SPACE
+                                                    &kp BACKSPACE     &lt 2 TAB      &lt 1 ESC     &lt 3 ENTER  &kp SPACE
             >;
         };
 
@@ -48,10 +48,10 @@
         SYM {
             display-name = "Sym";
             bindings = <
-    &kp TILDE    &kp DLLR  &kp CARET      &move_line_up    &mc_add_above        &kp AMPS   &kp PLUS      &kp LBKT  &kp RBKT  &kp PRCNT
-    &kp UNDER    &kp LT    &kp GT         &kp BACKSPACE    &delete_line         &kp GRAVE  &kp KP_MINUS  &kp LPAR  &kp RPAR  &kp ASTRK
-    &home_dir    &none     &kp HASH       &move_line_down  &mc_add_below        &code_blk  &kp EQUAL     &kp LBRC  &kp RBRC  &kp AT
-                                          &kp BACKSPACE    &mo 5                &kp ESC    &trans        &kp SPACE
+    &kp LT       &kp GT    &kp DQT        &kp LPAR         &kp RPAR             &kp DOT    &kp EXCL      &kp COLON &kp FSLH  &kp TILDE
+    &kp PRCNT    &kp ASTRK &kp SQT        &kp LBKT         &kp RBKT             &kp COMMA  &kp MINUS     &kp SEMI  &kp BSLH  &kp AMPS
+    &kp HASH     &kp CARET &kp GRAVE      &kp LBRC         &kp RBRC             &kp QMARK  &kp UNDER     &kp PIPE  &kp HASH  &kp AT
+                                          &kp BACKSPACE    &kp TAB              &trans     &trans        &kp SPACE
             >;
         };
 
@@ -68,10 +68,10 @@
         EXTRAS {
             display-name = "Xtra";
             bindings = <
-    &shrug          &lgtm         &gcm          &none           &kp C_BRIGHTNESS_INC      &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG
-    &sudo           &none         &none         &none           &kp C_BRIGHTNESS_DEC      &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT
-    &kp C_AC_UNDO   &kp C_AC_CUT  &caps_word    &kp C_AC_PASTE  &kp DEL                   &new_dir      &kp C_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp PRINTSCREEN
-                                                &none           &none                     &none         &none           &none
+    &git_pull       &git_add      &git_commit   &git_push       &kp C_BRIGHTNESS_INC      &bt BT_SEL 0         &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3     &out OUT_TOG
+    &none           &none         &none         &none           &kp C_BRIGHTNESS_DEC      &none                &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP       &kp C_NEXT
+    &none           &none         &caps_word    &none           &kp DEL                   &kp PRINTSCREEN      &kp C_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none
+                                                &none           &none                     &none                &none           &none
             >;
         };
 
