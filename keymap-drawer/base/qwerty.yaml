@@ -32,9 +32,9 @@ layers:
   - .
   - '&td_slash_lang'
   - BACK SPACE
-  - {t: TAB, h: Num}
-  - {t: ESC, h: Nav}
-  - {t: ENTER, h: Sym}
+  - {t: TAB, h: Nav}
+  - {t: ESC, h: Num}
+  - '&sym_en'
   - SPACE
   Num:
   - +
@@ -68,8 +68,8 @@ layers:
   - {t: '3', s: F3}
   - {t: '*', s: F12}
   - BACK SPACE
-  - {type: held}
-  - ESC
+  - {t: ▽, type: trans}
+  - {t: ESC, type: held}
   - Xtra
   - SPACE
   Nav:
@@ -104,60 +104,60 @@ layers:
   - ''
   - ''
   - ''
-  - ''
   - {type: held}
+  - ''
   - ''
   - SPACE
   Sym:
-  - '~'
-  - $
-  - ^
-  - '&move_line_up'
-  - '&mc_add_above'
-  - '&'
-  - +
-  - '['
-  - ']'
-  - '%'
-  - _
   - <
   - '>'
-  - BACK SPACE
-  - '&delete_line'
-  - '`'
-  - '-'
+  - '"'
   - (
   - )
+  - .
+  - '!'
+  - ':'
+  - /
+  - '~'
+  - '%'
   - '*'
-  - ~/
-  - ''
+  - ''''
+  - '['
+  - ']'
+  - ','
+  - '-'
+  - ;
+  - \
+  - '&'
   - '#'
-  - '&move_line_down'
-  - '&mc_add_below'
-  - '```'
-  - '='
+  - ^
+  - '`'
   - '{'
   - '}'
+  - '?'
+  - _
+  - '|'
+  - '#'
   - '@'
   - BACK SPACE
-  - Xtra
-  - ESC
-  - {type: held}
+  - TAB
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - SPACE
   Game: [TAB, Q, W, E, R, '', '', '', '', '', LCTRL, A, S, D, F, '', '', '', '', '', LSHFT, Y, X, C, V, '', '', '', '', '', '', SPACE, LEFT ALT, '', '']
   Xtra:
-  - SHRUG
-  - LGTM
-  - GIT COMMIT
-  - ''
+  - '&git_pull'
+  - '&git_add'
+  - '&git_commit'
+  - '&git_push'
   - BRIGHT ▲
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
   - OUT TOG
-  - sudo!!
-  - ''
+  - '&docker_up'
+  - '&docker_down'
   - ''
   - ''
   - BRIGHT ▼
@@ -166,19 +166,19 @@ layers:
   - PLAY PAUSE
   - STOP
   - NEXT
-  - UNDO
-  - CUT
+  - ''
+  - ''
   - CAPS WORD
-  - PASTE
+  - ''
   - DEL
-  - NEW DIR
+  - PRINT SCREEN
   - MUTE
   - VOLUME DOWN
   - VOLUME UP
-  - PRINT SCREEN
+  - ''
+  - ''
   - ''
   - {type: held}
-  - ''
   - {type: held}
   - ''
   Mouse:
