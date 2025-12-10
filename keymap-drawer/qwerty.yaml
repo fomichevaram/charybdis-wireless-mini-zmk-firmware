@@ -34,7 +34,7 @@ layers:
   - BACK SPACE
   - {t: TAB, h: Nav}
   - {t: ESC, h: Num}
-  - '&sym_en'
+  - {t: ENTER, h: '&sym_en'}
   - SPACE
   Num:
   - +
