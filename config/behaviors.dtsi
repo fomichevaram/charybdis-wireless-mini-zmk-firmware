@@ -245,5 +245,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp SLASH>, <&kp LG(SPACE)>;
         };
+
+        ht_sym_en: sym_layer_with_en_switch {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&sym_en>, <&kp>;
+        };
     };
 };
