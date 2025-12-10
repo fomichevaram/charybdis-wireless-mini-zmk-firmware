@@ -75,17 +75,20 @@ To see all the layers check out the [full render](keymap-drawer/qwerty.svg).
   - Dot key for numeric input (position 20)
   - Delete key (position 24)
 - **SYM layer improvements:**
+  - **Auto-switch to English layout:** When activating SYM layer (hold right thumb Enter key), automatically switches to English keyboard layout to ensure symbols work correctly
+  - Layout-dependent symbol input using standard keycodes
   - VS Code macros: move line up/down, add cursor above/below, delete line
   - Common symbols organized for coding
 - **EXTRAS layer:**
+  - Git workflow shortcuts: pull, add, commit, push (row 1)
+  - Docker macros: `docker compose up -d --build`, `docker compose down` (row 2)
   - Bluetooth profile switching (BT_SEL 0-3)
-  - Media controls (play/pause, volume, mute fixed to C_MUTE)
+  - Media controls (play/pause, volume, mute)
   - Brightness controls
-  - Text snippets and macros (shrug, lgtm, gcm)
   - Caps Word toggle
 - **Thumb cluster layout:**
-  - Left: Backspace, Tab (hold for NUM layer)
-  - Right: Esc (hold for NAV layer), Enter (hold for SYM layer), Space
+  - Left: Backspace, Tab (hold for NAV layer)
+  - Right: Esc (hold for NUM layer), **Enter (hold for SYM + auto EN switch)**, Space
 - **Double-tap GUI access:** Double-tap the `A` key to get Cmd/Gui modifier without holding
 - **Bluetooth profile quick-swap:** Jump to the EXTRAS layer and tap the dedicated BT-select keys to pair or switch among up to four saved hosts (plus BT CLR to forget all).
 - **PMW3610 low power trackball sensor driver:** Provided by [badjeff](https://github.com/badjeff/zmk-pmw3610-driver)
