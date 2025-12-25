@@ -28,8 +28,8 @@
         NUM {
             display-name = "Num";
             bindings = <
-    &kp PLUS     &kp KP_MINUS  &kp EQUAL      &kp ASTRK      &kp PERCENT        &none      &mm_f7    &mm_f8    &mm_f9    &mm_f10
-    &kp LCMD     &kp LALT      &kp LCTRL      &kp LSHFT      &none              &none      &mm_f4    &mm_f5    &mm_f6    &mm_f11
+    &kp PLUS     &kp KP_MINUS  &kp EQUAL      &kp ASTRK      &kp FSLH           &none      &mm_f7    &mm_f8    &mm_f9    &mm_f10
+    &kp LCMD     &kp LALT      &kp LCTRL      &kp LSHFT      &kp PERCENT        &none      &mm_f4    &mm_f5    &mm_f6    &mm_f11
     &kp DOT      &kp X         &kp C          &kp V          &kp DEL            &none      &mm_f1    &mm_f2    &mm_f3    &mm_f12
                                               &kp BACKSPACE  &trans             &kp ESC    &mo 5     &kp SPACE
             >;
