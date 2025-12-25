@@ -10,7 +10,10 @@
 
     /* battery monitor*/
     vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
+        compatible = "zmk,battery-voltage-divider";
+        io-channels = <&adc 2>;
+        output-ohms = <2000000>;
+        full-ohms = <(2000000 + 806000)>;
     };
 
     default_transform: keymap_transform_0 {
