@@ -71,14 +71,23 @@ jobs:
 
           echo "🪳 Debug Logs"
           echo "Top dir  : $(west topdir)"
-          echo "Projects :"
-          ls -1 $(west topdir)
-          echo "Workspace list:"
+          echo "All folders:"
+          ls -la $(west topdir)
+          echo ""
+          echo "West projects:"
           west list
-          echo "📦 Zephyr version:"
-          cat $(west topdir)/zephyr/VERSION || echo "VERSION file not found"
-          grep -r "VERSION_MAJOR\|VERSION_MINOR" $(west topdir)/zephyr/VERSION 2>/dev/null || echo "Checking CMakeLists..."
-          head -20 $(west topdir)/zephyr/CMakeLists.txt | grep "project(Zephyr" || true
+          echo ""
+          echo "📦 Looking for Zephyr..."
+          find $(west topdir) -maxdepth 2 -name "VERSION" -o -name "CMakeLists.txt" | head -10
+          echo ""
+          echo "📦 ZMK location:"
+          ls -la $(west topdir)/zmk/ 2>/dev/null || echo "ZMK not found"
+          echo ""
+          echo "📦 Checking for Zephyr in modules:"
+          ls -la $(west topdir)/modules/zephyr/ 2>/dev/null || echo "Not in modules/zephyr"
+          echo ""
+          echo "📦 Zephyr VERSION content (if found):"
+          find $(west topdir) -name "VERSION" -type f -exec echo "Found: {}" \; -exec head -5 {} \; | head -20
 
       - name: Download keymaps
         uses: actions/download-artifact@v4
