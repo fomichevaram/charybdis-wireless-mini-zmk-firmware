@@ -9,7 +9,7 @@ manifest:
   projects:
     - name: zmk
       remote: urob
-      revision: main
+      revision: f2eb0b888d13f23c70dfa93d8e6e2c61c5d03f67
       import: app/west.yml
 
     - name: zmk-pmw3610-driver
