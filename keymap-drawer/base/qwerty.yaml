@@ -34,7 +34,7 @@ layers:
   - BACK SPACE
   - {t: TAB, h: Nav}
   - {t: ESC, h: Num}
-  - {t: ENTER, h: '&sym_en'}
+  - {t: ENTER, h: Sym}
   - SPACE
   Num:
   - +
@@ -142,7 +142,7 @@ layers:
   - BACK SPACE
   - TAB
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - SPACE
   Game: [TAB, Q, W, E, R, '', '', '', '', '', LCTRL, A, S, D, F, '', '', '', '', '', LSHFT, Y, X, C, V, '', '', '', '', '', '', SPACE, LEFT ALT, '', '']
   Xtra:
