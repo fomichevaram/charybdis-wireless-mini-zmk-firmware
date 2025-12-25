@@ -55,11 +55,13 @@
     sniper_mode {
         layers = <7>;
         input-processors = <&zip_xy_scaler 1 3>;
+        inherit;
     };
     
     // Scroll mode on layer 8 - inverted smooth scroll (1/8 speed)
     scroll_mode {
         layers = <8>;
         input-processors = <&zip_xy_to_scroll_mapper>, <&zip_wheel_scaler 1 8>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+        inherit;
     };
 };
