@@ -64,7 +64,9 @@ jobs:
           set -euxo pipefail
           echo "✨ Init west workspace with local manifest."
           west init -l --mf $GITHUB_WORKSPACE/config/west.yml "$GITHUB_WORKSPACE/config"
-          west update
+          # Принудительное обновление без использования кэша
+          rm -rf .west/manifest-tmp || true
+          west update --fetch-opt=--depth 1
           west zephyr-export
 
           echo "🪳 Debug Logs"
