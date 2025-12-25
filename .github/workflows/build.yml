@@ -66,7 +66,7 @@ jobs:
           west init -l --mf $GITHUB_WORKSPACE/config/west.yml "$GITHUB_WORKSPACE/config"
           # Принудительное обновление без использования кэша
           rm -rf .west/manifest-tmp || true
-          west update --fetch-opt=--depth 1
+          west update
           west zephyr-export
 
           echo "🪳 Debug Logs"
@@ -75,6 +75,10 @@ jobs:
           ls -1 $(west topdir)
           echo "Workspace list:"
           west list
+          echo "📦 Zephyr version:"
+          cat $(west topdir)/zephyr/VERSION || echo "VERSION file not found"
+          grep -r "VERSION_MAJOR\|VERSION_MINOR" $(west topdir)/zephyr/VERSION 2>/dev/null || echo "Checking CMakeLists..."
+          head -20 $(west topdir)/zephyr/CMakeLists.txt | grep "project(Zephyr" || true
 
       - name: Download keymaps
         uses: actions/download-artifact@v4
