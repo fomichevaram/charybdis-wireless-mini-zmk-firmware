@@ -8,12 +8,9 @@
         zmk,battery = &vbatt;
     };
 
-    /* battery monitor*/
+    /* battery monitor - использует встроенный VDDH sensor nice_nano */
     vbatt: vbatt {
-        compatible = "zmk,battery-voltage-divider";
-        io-channels = <&adc 2>;
-        output-ohms = <2000000>;
-        full-ohms = <(2000000 + 806000)>;
+        compatible = "zmk,battery-nrf-vddh";
     };
 
     default_transform: keymap_transform_0 {
