@@ -1,0 +1,13 @@
+// SuperMini nRF52840 specific overlay for nice_nano board
+// Fixes power management for SuperMini clone
+
+/ {
+    supermini_power {
+        compatible = "regulator-fixed";
+        regulator-name = "supermini-vcc";
+        enable-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        regulator-always-on;
+        regulator-boot-on;
+        status = "okay";
+    };
+};
